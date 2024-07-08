@@ -35,4 +35,10 @@ class IsbnValidatorTest {
         var validIsbnX = "0-8044-2957-X";
         assertTrue(isbnValidator.validate(validIsbnX));
     }
+
+    @Test
+    void shouldReturnFalseIfIsbnIsNull() {
+
+        assertFalse(isbnValidator.validate(null));
+    }
 }

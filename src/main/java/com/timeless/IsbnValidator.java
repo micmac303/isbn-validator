@@ -6,6 +6,9 @@ public class IsbnValidator {
 
     public boolean validate(String isbn) {
 
+        //Return false if null
+        if (isbn == null) return false;
+
         // Convert ISBN String to IntStream of char int values
         var isbnChars = isbn.chars();
 
@@ -21,9 +24,7 @@ public class IsbnValidator {
                 .toList();
 
         // Return false if size is not 10 i.e. invalid size for ISBN-10
-        if (numericalIsbn.size() != 10) {
-            return false;
-        }
+        if (numericalIsbn.size() != 10) return false;
 
         // From the last digit moving backwards, multiply each digit by its index, starting from 1
         int size = numericalIsbn.size();
