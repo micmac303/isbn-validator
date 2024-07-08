@@ -41,4 +41,10 @@ class IsbnValidatorTest {
 
         assertFalse(isbnValidator.validate(null));
     }
+
+    @Test
+    void shouldReturnFalseIfIsbnIsEmpty() {
+
+        assertFalse(isbnValidator.validate(""));
+    }
 }
