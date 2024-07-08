@@ -11,22 +11,28 @@ class IsbnValidatorTest {
     @Test
     void shouldReturnFalseIfNotTenCharacters() {
 
-        assertFalse(isbnValidator.validate("hello"));
+        var invalidIsbn = "notTenCharacters";
+        assertFalse(isbnValidator.validate(invalidIsbn));
     }
 
     @Test
     void shouldReturnTrueIfValid() {
 
-        var validIsbn = "3598215088";
-        var validIsbnX = "359821508X";
-
+        var validIsbn = "3-598-21500-2";
         assertTrue(isbnValidator.validate(validIsbn));
-        assertTrue(isbnValidator.validate(validIsbnX));
     }
 
     @Test
     void shouldReturnFalseIfInvalid() {
 
+        var invalidIsbn = "3-598-21508-9";
+        assertFalse(isbnValidator.validate(invalidIsbn));
+    }
 
+    @Test
+    void shouldReturnTrueIfValidX() {
+
+        var validIsbnX = "0-8044-2957-X";
+        assertTrue(isbnValidator.validate(validIsbnX));
     }
 }
